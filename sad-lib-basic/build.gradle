@@ -1,0 +1,118 @@
+apply plugin: 'com.android.library'
+/*apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'*/
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 10
+        versionName rootProject.ext.versionNameSadBasic
+        /*vectorDrawables.useSupportLibrary = true
+        renderscriptTargetApi rootProject.ext.compileSdkVersion
+        renderscriptSupportModeEnabled true*/
+        //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        /*ndk {
+            moduleName "lib-c-kernel"       //生成的so名字
+            abiFilters "x86", "armeabi-v7a"//, "x86","arm64-v8a","x86_64" //输出指定三种abi体系结构下的so库，目前可有可无。注释防止librs.so无法拷贝
+            //cFlags "-DANDROID_NDK -D_DEBUG DNULL=0"   // Define some macros
+            ldLibs "EGL",
+                    //"GLESv3",
+                    "dl",
+                    "log"	   // Link with these libraries!
+            stl "stlport_static"					  // Use shared stlport library
+        }
+        externalNativeBuild {
+            cmake {
+                cppFlags "-frtti -fexceptions"
+                //abiFilters 'armeabi-v7a', 'x86'
+            }
+        }*/
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-frtti -fexceptions"
+                abiFilters 'armeabi-v7a', 'x86'
+            }
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+/*apply plugin: 'com.novoda.bintray-release'
+allprojects {
+    repositories {
+        jcenter()
+        maven {url "https://dl.bintray.com/lucifinilsu/maven"}
+    }
+    //加上这些
+    tasks.withType(Javadoc) {
+        options{ encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
+    }
+}
+publish {
+    repoName = 'maven'
+    userOrg = 'lucifinilsu'      //bintray注册的用户名
+    groupId = 'com.sad.baisc'         //compile引用时的第1部分groupId
+    artifactId = 'sad-basic'     //compile引用时的第2部分项目名
+    publishVersion = rootProject.ext.versionNameSadBasic    //compile引用时的第3部分版本号
+    desc = 'SAD基本工具库,0.1.3修正kotlin版本'
+    //website = 'https://github.com/wzgiceman/Rxbus'
+}*/
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //implementation"org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    api 'com.android.support:appcompat-v7:'+rootProject.ext.supportVersion
+    api 'com.android.support:support-v4:'+ rootProject.ext.supportVersion
+    api 'com.android.support:support-annotations:'+ rootProject.ext.supportVersion
+    api 'com.android.support:recyclerview-v7:'+ rootProject.ext.supportVersion
+    api 'com.android.support:transition:'+ rootProject.ext.supportVersion
+    api 'com.android.support:cardview-v7:'+ rootProject.ext.supportVersion
+    api ('com.android.support:design:' + rootProject.ext.supportVersion){
+        exclude module: 'recyclerview-v7'
+        exclude module: 'transition'
+        exclude module: 'cardview-v7'
+        //exclude group: 'com.android.support.test'
+    }
+    api ('com.android.support.constraint:constraint-layout:latest.release'){
+
+        exclude module: 'recyclerview-v7'
+    }
+    api 'com.google.code.gson:gson:latest.release'
+    /*testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:latest.release'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:latest.release'*/
+}
+apply from: rootProject.file('uploadbintrayJceneterScript.gradle')

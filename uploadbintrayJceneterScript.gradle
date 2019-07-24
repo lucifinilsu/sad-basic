@@ -1,0 +1,35 @@
+apply plugin: 'com.github.dcendents.android-maven'
+ext {
+    bintrayRepo = 'sad'
+    bintrayName = 'sad-basic'
+
+    publishedGroupId = 'com.sad.basic'
+    libraryName = 'sad-basic'
+    artifact = 'sad-basic'
+
+    libraryDescription = 'A library for Sad basic Lib.'
+
+    siteUrl = 'https://github.com/lucifinilsu/SmartAndroidDeveloper'
+    gitUrl = 'https://github.com/lucifinilsu/SmartAndroidDeveloper'
+
+    libraryVersion = versionNameSadBasic
+
+    developerId = 'lucifinilsu'
+    developerName = 'lucifinilsu'
+    developerEmail = 'lucifinilsu@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+tasks.withType(Javadoc) {
+    options{
+        encoding "UTF-8"
+        charSet 'UTF-8'
+        links "http://docs.oracle.com/javase/7/docs/api"
+    }
+    options.addStringOption('Xdoclint:none', '-quiet')
+
+}
+apply from: 'https://raw.githubusercontent.com/lucifinilsu/SmartAndroidDeveloper/master/install.gradle'
+apply from: 'https://raw.githubusercontent.com/lucifinilsu/SmartAndroidDeveloper/master/bintray.gradle'
