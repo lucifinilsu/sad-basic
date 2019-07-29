@@ -654,7 +654,11 @@ public class FileUtils {
                 }
                 if (isRecursive && file.isDirectory()) {
                     //noinspection ConstantConditions
-                    list.addAll(listFilesInDirWithFilter(file, filter, true));
+                    List<File> l=listFilesInDirWithFilter(file, filter, isRecursive);
+                    if (l!=null){
+                        list.addAll(l);
+                    }
+
                 }
             }
         }
@@ -839,14 +843,17 @@ public class FileUtils {
         File[] files = dir.listFiles();
         if (files != null && files.length != 0) {
             for (File file : files) {
-                if (file!=null && (filter==null || !filter.accept(file))){
-                    continue;
+                if (file!=null && (filter==null || filter.accept(file))){
+                    if (file.isDirectory()) {
+                        long t=getDirLengthWithFilter(file,filter,scaned);
+                        if (t>-1){
+                            len +=t;
+                        }
+                    } else {
+                        len += file.length();
+                    }
                 }
-                if (file.isDirectory()) {
-                    len += getDirLengthWithFilter(file,filter,scaned);
-                } else {
-                    len += file.length();
-                }
+
             }
         }
         return len;
