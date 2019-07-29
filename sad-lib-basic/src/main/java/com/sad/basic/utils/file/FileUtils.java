@@ -526,7 +526,7 @@ public class FileUtils {
         File[] files = dir.listFiles();
         if (files != null && files.length != 0) {
             for (File file : files) {
-                if (filter.accept(file)) {
+                if (filter==null || filter.accept(file)) {
 
                     if (file.isFile()) {
                         if(scaned!=null){
@@ -649,7 +649,7 @@ public class FileUtils {
         File[] files = dir.listFiles();
         if (files != null && files.length != 0) {
             for (File file : files) {
-                if (filter.accept(file)) {
+                if (filter==null || filter.accept(file)) {
                     list.add(file);
                 }
                 if (isRecursive && file.isDirectory()) {
@@ -839,7 +839,7 @@ public class FileUtils {
         File[] files = dir.listFiles();
         if (files != null && files.length != 0) {
             for (File file : files) {
-                if (file!=null && !filter.accept(file)){
+                if (file!=null && (filter==null || !filter.accept(file))){
                     continue;
                 }
                 if (file.isDirectory()) {
