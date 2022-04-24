@@ -3,8 +3,9 @@
 buildscript {
     //ext.kotlin_version = 'latest.release'//'1.2.51'
     repositories {
+        maven { url "https://jitpack.io" }
         google()
-        jcenter()
+        //jcenter()
         mavenCentral()
     }
     dependencies {
@@ -16,7 +17,7 @@ buildscript {
         // in the individual module build.gradle files
 
         //classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:latest.release'
-        //classpath 'com.github.dcendents:android-maven-gradle-plugin:latest.release'
+        //classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
     }
 }
 
@@ -26,13 +27,14 @@ project.ext {
     basicApplicationId="com.sad.basic.demo"
     versionCode = 10
     versionName = "4.0.0"
-    versionNameSadBasic="0.3.0"
+    versionNameSadBasic="0.3.1"
 }
 
 allprojects {
     repositories {
+        maven { url "https://jitpack.io" }
         google()
-        jcenter()
+        //jcenter()
         mavenCentral()
     }
 }
