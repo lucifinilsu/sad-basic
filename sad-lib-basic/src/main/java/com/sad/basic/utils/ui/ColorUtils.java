@@ -3,9 +3,10 @@ package com.sad.basic.utils.ui;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.widget.ImageView;
+
+import androidx.annotation.DrawableRes;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 /**
  * Created by Administrator on 2018/11/19 0019.

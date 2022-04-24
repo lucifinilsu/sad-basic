@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mobile/mobile.iml" filepath="$PROJECT_DIR$/mobile/mobile.iml" />
       <module fileurl="file://$PROJECT_DIR$/sad-basic.iml" filepath="$PROJECT_DIR$/sad-basic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sad-lib-basic/sad-lib-basic.iml" filepath="$PROJECT_DIR$/sad-lib-basic/sad-lib-basic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tv/tv.iml" filepath="$PROJECT_DIR$/tv/tv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile/sad-basic.mobile.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile/sad-basic.mobile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sad-lib-basic/sad-basic.sad-lib-basic.iml" filepath="$PROJECT_DIR$/.idea/modules/sad-lib-basic/sad-basic.sad-lib-basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tv/sad-basic.tv.iml" filepath="$PROJECT_DIR$/.idea/modules/tv/sad-basic.tv.iml" />
     </modules>
   </component>
 </project>

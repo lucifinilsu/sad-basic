@@ -38,7 +38,7 @@ android {
         externalNativeBuild {
             cmake {
                 cppFlags "-frtti -fexceptions"
-                abiFilters 'armeabi-v7a', 'x86'
+                abiFilters  "arm64-v8a"//'armeabi-v7a', 'x86'
             }
         }
         javaCompileOptions {
@@ -94,7 +94,8 @@ publish {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //implementation"org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
-    api 'com.android.support:appcompat-v7:'+rootProject.ext.supportVersion
+
+    /*api 'com.android.support:appcompat-v7:'+rootProject.ext.supportVersion
     api 'com.android.support:support-v4:'+ rootProject.ext.supportVersion
     api 'com.android.support:support-annotations:'+ rootProject.ext.supportVersion
     api 'com.android.support:recyclerview-v7:'+ rootProject.ext.supportVersion
@@ -109,10 +110,17 @@ dependencies {
     api ('com.android.support.constraint:constraint-layout:latest.release'){
 
         exclude module: 'recyclerview-v7'
-    }
+    }*/
+    api 'androidx.appcompat:appcompat:' + rootProject.ext.androidxAppCompatVersion
+    api 'androidx.palette:palette:' + rootProject.ext.androidxPaletteVersion
+    api 'androidx.multidex:multidex:' + rootProject.ext.androidxMultidexVersion
+    api 'androidx.legacy:legacy-support-v4:' + rootProject.ext.androidxLegacySupportV4Version
+    api 'androidx.cardview:cardview:' + rootProject.ext.androidxCardviewVersion
+    api 'androidx.recyclerview:recyclerview:' + rootProject.ext.androidxRecyclerviewVersion
+
     api 'com.google.code.gson:gson:latest.release'
     /*testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:latest.release'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:latest.release'*/
 }
-apply from: rootProject.file('uploadbintrayJceneterScript.gradle')
+//apply from: rootProject.file('uploadbintrayJceneterScript.gradle')

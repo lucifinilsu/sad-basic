@@ -5,9 +5,10 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
-import android.support.annotation.IntDef;
 import android.text.TextUtils;
 import android.view.View;
+
+import androidx.annotation.IntDef;
 
 import com.sad.basic.utils.file.DirScanningResult;
 import com.sad.basic.utils.file.FileUtils;
