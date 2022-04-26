@@ -31,7 +31,7 @@ import android.widget.FrameLayout;
  * 其实最初的原版就是 AndroidBug5497Workaround ，但是原版考虑的不够全面，尤其是虚拟导航栏的问题，没有考虑进去
  * 参考：https://www.jianshu.com/p/a95a1b84da11
  */
-
+//测试提交内容
 public class SoftKeyboardFixerForFullscreenUtils {
 
     public static void assistActivity(Activity activity) {
