@@ -7,3 +7,5 @@
 /build
 /captures
 .externalNativeBuild
+/mobile/.cxx
+/sad-lib-basic/.cxx
