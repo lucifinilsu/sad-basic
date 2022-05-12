@@ -4,8 +4,17 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/sad-basic.iml" filepath="$PROJECT_DIR$/sad-basic.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile/sad-basic.mobile.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile/sad-basic.mobile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile/sad-basic.mobile.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile/sad-basic.mobile.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile/sad-basic.mobile.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile/sad-basic.mobile.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile/sad-basic.mobile.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile/sad-basic.mobile.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sad-lib-basic/sad-basic.sad-lib-basic.iml" filepath="$PROJECT_DIR$/.idea/modules/sad-lib-basic/sad-basic.sad-lib-basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sad-lib-basic/sad-basic.sad-lib-basic.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/sad-lib-basic/sad-basic.sad-lib-basic.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sad-lib-basic/sad-basic.sad-lib-basic.main.iml" filepath="$PROJECT_DIR$/.idea/modules/sad-lib-basic/sad-basic.sad-lib-basic.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sad-lib-basic/sad-basic.sad-lib-basic.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/sad-lib-basic/sad-basic.sad-lib-basic.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/tv/sad-basic.tv.iml" filepath="$PROJECT_DIR$/.idea/modules/tv/sad-basic.tv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tv/sad-basic.tv.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/tv/sad-basic.tv.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tv/sad-basic.tv.main.iml" filepath="$PROJECT_DIR$/.idea/modules/tv/sad-basic.tv.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tv/sad-basic.tv.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/tv/sad-basic.tv.unitTest.iml" />
     </modules>
   </component>
 </project>
