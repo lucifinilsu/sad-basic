@@ -1,6 +1,6 @@
 plugins{
     id 'com.android.library'
-    id 'maven-publish'
+    //id 'maven-publish'
 }
 group='com.sad.basic.test'
 android {
@@ -37,31 +37,31 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                // Applies the component for the release build variant.
-                from components.release
-
-                // You can then customize attributes of the publication as shown below.
-                groupId = 'com.sad.basic.test'
-                artifactId = 'sad-basic-test'
-                version = '0.0.1'
-            }
-            // Creates a Maven publication called “debug”.
-            /*debug(MavenPublication) {
-                // Applies the component for the debug build variant.
-                from components.debug
-
-                groupId = 'com.example.MyLibrary'
-                artifactId = 'final-debug'
-                version = '1.0'
-            }*/
-        }
-    }
-}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            // Creates a Maven publication called "release".
+//            release(MavenPublication) {
+//                // Applies the component for the release build variant.
+//                from components.release
+//
+//                // You can then customize attributes of the publication as shown below.
+//                groupId = 'com.sad.basic.test'
+//                artifactId = 'sad-basic-test'
+//                version = '0.0.1'
+//            }
+//            // Creates a Maven publication called “debug”.
+//            /*debug(MavenPublication) {
+//                // Applies the component for the debug build variant.
+//                from components.debug
+//
+//                groupId = 'com.example.MyLibrary'
+//                artifactId = 'final-debug'
+//                version = '1.0'
+//            }*/
+//        }
+//    }
+//}
 dependencies {
     api 'androidx.appcompat:appcompat:' + rootProject.ext.androidxAppCompatVersion
     api project(':sad-lib-basic')
