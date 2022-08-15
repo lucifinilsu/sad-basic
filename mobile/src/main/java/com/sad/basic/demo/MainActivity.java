@@ -22,6 +22,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'native-lib' library on application startup.
+    //android01 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
     static {
         System.loadLibrary("native-lib");
     }
