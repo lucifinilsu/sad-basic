@@ -1,1 +1,2 @@
 include ':mobile', ':tv', ':sad-lib-basic'
+include ':sad-lib-test'
