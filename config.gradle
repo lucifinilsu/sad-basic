@@ -1,7 +1,7 @@
 project.ext {
     supportVersion="latest.release"
-    buildToolsVersion = "29.0.2"
-    compileSdkVersion = 29
+    buildToolsVersion = "29.0.3"
+    compileSdkVersion = 30
     minSdkVersion = 21
     targetSdkVersion = 29
     abortOnLintError = false
