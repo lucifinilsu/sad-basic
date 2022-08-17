@@ -93,8 +93,9 @@ dependencies {
     //androidTestImplementation 'com.android.support.test:runner:latest.release'
     //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //compile 'com.sad.core.async:sad-async:latest.release'
-    //api "com.github.lucifinilsu:sad-datastore:0.2.5-RC5"
-    api 'androidx.appcompat:appcompat:' + rootProject.ext.androidxAppCompatVersion
-    api project(':sad-lib-basic')
+    //api "com.github.lucifinilsu.sad-architecture-core:sad-architecture-annotation:1.3.1Beta6"
+    //api "com.github.lucifinilsu.sad-basic:sad-basic-test:0.3.6-alpha1"
+    //api 'androidx.appcompat:appcompat:' + rootProject.ext.androidxAppCompatVersion
+    //api project(':sad-lib-basic')
 
 }

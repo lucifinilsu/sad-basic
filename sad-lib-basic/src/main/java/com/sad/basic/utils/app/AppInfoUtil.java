@@ -14,7 +14,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.text.TextUtils;
+import android.util.Log;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -284,19 +287,77 @@ public class AppInfoUtil {
 		return false;
 	}
 
+	private static String getCurrAppProccessName2(){
+		FileInputStream var1 = null;
+		String var7;
+		try {
+			String var2 = "/proc/self/cmdline";
+			var1 = new FileInputStream(var2);
+			byte[] var3 = new byte[256];
+			int var4;
+			int var5;
+			for(var4 = 0; (var5 = var1.read()) > 0 && var4 < var3.length; var3[var4++] = (byte)var5) {
+			}
+			if (var4 <= 0) {
+				return null;
+			}
+			String var6 = new String(var3, 0, var4, "UTF-8");
+			var7 = var6;
+		} catch (Throwable var18) {
+			var18.printStackTrace();
+			return null;
+		} finally {
+			if (var1 != null) {
+				try {
+					var1.close();
+				} catch (IOException var17) {
+					var17.printStackTrace();
+				}
+			}
+
+		}
+		return var7;
+	}
+
+	private static String cacheCurrAppProccessName="";
 	/**
 	 * 获取当前运行的进程名
 	 * @param context
 	 * @return
 	 */
-	public static String getCurrAppProccessName(Context context) {
-		int pid = android.os.Process.myPid();
-		ActivityManager mActivityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-		List<ActivityManager.RunningAppProcessInfo> list=mActivityManager.getRunningAppProcesses();
-		for (ActivityManager.RunningAppProcessInfo appProcess : list) {
-			if (appProcess.pid == pid) {
+	public static String getCurrAppProccessName(Context context){
+		return getCurrAppProccessName(context,true);
+	}
+	public static String getCurrAppProccessName(Context context,boolean readCache) {
+		if (readCache){
+			if (!TextUtils.isEmpty(cacheCurrAppProccessName)){
+				Log.e("sad-basic","-------->获取进程名缓存:"+cacheCurrAppProccessName);
+				return cacheCurrAppProccessName;
+			}
+		}
+		try {
+			cacheCurrAppProccessName=getCurrAppProccessName2();
+			Log.e("sad-basic","-------->获取进程名v2:"+cacheCurrAppProccessName);
+			if (!TextUtils.isEmpty(cacheCurrAppProccessName)){
+				return cacheCurrAppProccessName;
+			}
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
 
-				return appProcess.processName;
+		if (TextUtils.isEmpty(cacheCurrAppProccessName)){
+			int pid = android.os.Process.myPid();
+			ActivityManager mActivityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+			int i=0;
+			List<ActivityManager.RunningAppProcessInfo> list=mActivityManager.getRunningAppProcesses();
+			for (ActivityManager.RunningAppProcessInfo appProcess : list) {
+				i++;
+				if (appProcess.pid == pid) {
+					Log.e("sad-basic","获取进程名v1循环:"+i);
+					cacheCurrAppProccessName= appProcess.processName;
+					return cacheCurrAppProccessName;
+				}
 			}
 		}
 		return "";

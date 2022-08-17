@@ -3,7 +3,7 @@
 buildscript {
     //ext.kotlin_version = 'latest.release'//'1.2.51'
     repositories {
-        maven { url "https://jitpack.io" }
+        maven { url "https://www.jitpack.io" }
         google()
         //jcenter()
         mavenCentral()
@@ -27,12 +27,12 @@ project.ext {
     basicApplicationId="com.sad.basic.demo"
     versionCode = 10
     versionName = "4.0.0"
-    versionNameSadBasic="0.3.5"
+    versionNameSadBasic="0.3.7"
 }
 
 allprojects {
     repositories {
-        maven { url "https://jitpack.io" }
+        maven { url "https://www.jitpack.io" }
         google()
         //jcenter()
         mavenCentral()
