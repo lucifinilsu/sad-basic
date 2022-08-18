@@ -322,26 +322,34 @@ public class AppInfoUtil {
 	}
 
 	private static String cacheCurrAppProccessName="";
+	public static boolean isLog=true;
+	private static void logCaller(){
+		log(Log.getStackTraceString(new Throwable()));
+	}
+	private static void log(String s){
+		if (isLog){
+			Log.e("sad-basic",s);
+		}
+	}
 	/**
 	 * 获取当前运行的进程名
 	 * @param context
 	 * @return
 	 */
 	public static String getCurrAppProccessName(Context context){
-		LogUtils.init(context);
-		LogUtils.e("sad-basic",Log.getStackTraceString(new Throwable()));
+		logCaller();
 		return getCurrAppProccessName(context,true);
 	}
 	public static String getCurrAppProccessName(Context context,boolean readCache) {
 		if (readCache){
 			if (!TextUtils.isEmpty(cacheCurrAppProccessName)){
-				LogUtils.e("sad-basic","-------->获取进程名缓存:"+cacheCurrAppProccessName);
+				log("-------->获取进程名缓存:"+cacheCurrAppProccessName);
 				return cacheCurrAppProccessName;
 			}
 		}
 		try {
 			cacheCurrAppProccessName=getCurrAppProccessName2();
-			LogUtils.e("sad-basic","-------->获取进程名v2:"+cacheCurrAppProccessName);
+			log("-------->获取进程名v2:"+cacheCurrAppProccessName);
 			if (!TextUtils.isEmpty(cacheCurrAppProccessName)){
 				return cacheCurrAppProccessName;
 			}
@@ -358,7 +366,7 @@ public class AppInfoUtil {
 			for (ActivityManager.RunningAppProcessInfo appProcess : list) {
 				i++;
 				if (appProcess.pid == pid) {
-					LogUtils.e("sad-basic","获取进程名v1循环:"+i);
+					log("获取进程名v1循环:"+i);
 					cacheCurrAppProccessName= appProcess.processName;
 					return cacheCurrAppProccessName;
 				}
