@@ -326,6 +326,7 @@ public class AppInfoUtil {
 	 * @return
 	 */
 	public static String getCurrAppProccessName(Context context){
+		Log.e("sad-basic",Log.getStackTraceString(new Throwable()));
 		return getCurrAppProccessName(context,true);
 	}
 	public static String getCurrAppProccessName(Context context,boolean readCache) {
