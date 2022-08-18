@@ -64,5 +64,5 @@ android {
 //}
 dependencies {
     api 'androidx.appcompat:appcompat:' + rootProject.ext.androidxAppCompatVersion
-    api project(':sad-lib-basic')
+    //api project(':sad-lib-basic')
 }
