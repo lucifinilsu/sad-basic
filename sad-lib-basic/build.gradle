@@ -4,7 +4,7 @@ plugins{
     id 'com.android.library'
     //id 'maven-publish'
 }
-group='com.sad.basic'
+//group='com.sad.basic'
 /*apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'*/
 

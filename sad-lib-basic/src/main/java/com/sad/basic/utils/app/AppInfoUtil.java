@@ -16,6 +16,8 @@ import android.os.Build.VERSION;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.sad.basic.utils.assistant.LogUtils;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -326,19 +328,19 @@ public class AppInfoUtil {
 	 * @return
 	 */
 	public static String getCurrAppProccessName(Context context){
-		Log.e("sad-basic",Log.getStackTraceString(new Throwable()));
+		LogUtils.e("sad-basic",Log.getStackTraceString(new Throwable()));
 		return getCurrAppProccessName(context,true);
 	}
 	public static String getCurrAppProccessName(Context context,boolean readCache) {
 		if (readCache){
 			if (!TextUtils.isEmpty(cacheCurrAppProccessName)){
-				Log.e("sad-basic","-------->获取进程名缓存:"+cacheCurrAppProccessName);
+				LogUtils.e("sad-basic","-------->获取进程名缓存:"+cacheCurrAppProccessName);
 				return cacheCurrAppProccessName;
 			}
 		}
 		try {
 			cacheCurrAppProccessName=getCurrAppProccessName2();
-			Log.e("sad-basic","-------->获取进程名v2:"+cacheCurrAppProccessName);
+			LogUtils.e("sad-basic","-------->获取进程名v2:"+cacheCurrAppProccessName);
 			if (!TextUtils.isEmpty(cacheCurrAppProccessName)){
 				return cacheCurrAppProccessName;
 			}
@@ -355,7 +357,7 @@ public class AppInfoUtil {
 			for (ActivityManager.RunningAppProcessInfo appProcess : list) {
 				i++;
 				if (appProcess.pid == pid) {
-					Log.e("sad-basic","获取进程名v1循环:"+i);
+					LogUtils.e("sad-basic","获取进程名v1循环:"+i);
 					cacheCurrAppProccessName= appProcess.processName;
 					return cacheCurrAppProccessName;
 				}
