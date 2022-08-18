@@ -328,6 +328,7 @@ public class AppInfoUtil {
 	 * @return
 	 */
 	public static String getCurrAppProccessName(Context context){
+		LogUtils.init(context);
 		LogUtils.e("sad-basic",Log.getStackTraceString(new Throwable()));
 		return getCurrAppProccessName(context,true);
 	}
